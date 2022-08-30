@@ -21,7 +21,30 @@ function checkJustin() {
         }, 400)
     }
 }
+function currencyMiniCartUpdate(el) {
+    let price = jQuery('[data-currency-show]');
+    if(price.length) {
+        price.each(function() {
+            let _self = jQuery(this);
+            let cartTotal = _self.find(el);
+            let totalVal = cartTotal.text().replace(/[^0-9]/gi, '');
+            let currencyRate = _self.data('rate');
+            let currencySymbol = _self.data('symbol');
+            let currencyVal = jQuery('<span class="additional-currency">'
+             + (totalVal*currencyRate).toFixed(1) + '&nbsp;' + currencySymbol + '</span>');
+            if(cartTotal.length && totalVal) {
+                cartTotal.next('.additional-currency').remove();
+                currencyVal.insertAfter(cartTotal);
+            }
+        });
+    }
+}
 checkJustin();
+
+jQuery( window ).on("load", function(){
+    currencyMiniCartUpdate('.cart-items-total-price .amount');
+});
 jQuery( document ).ajaxComplete(function() {
     checkJustin();
+    currencyMiniCartUpdate('.amount');
 });

@@ -29,11 +29,14 @@
 	 * @hooked electro_skip_links - 0
 	 * @hooked electro_top_bar - 10
 	 */
+	$currency_rate = get_field('currency_rate', 'options');
+	$currency_symbol = get_field('currency_symbol', 'options');
+	$show_currency = get_field('show_currency_in_mini_cart', 'options');
 	do_action( 'electro_before_header' ); ?>
 
 	<?php if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'header' ) ) : ?>
 
-	<header id="masthead" class="site-header header-v3 stick-this">
+	<header <?php if( in_array('Yes', $show_currency)){echo 'data-currency-show';}  ?> data-symbol="<?php echo $currency_symbol ?>" data-rate="<?php echo $currency_rate ?>" id="masthead" class="site-header header-v3 stick-this">
 		<div class="container <?php echo esc_attr( has_electro_mobile_header() ? electro_desktop_header_responsive_class() : '' );  ?>">
 			<?php
 			/**
