@@ -1,0 +1,70 @@
+/nbproject/private/
+/nbproject/
+wp-config.php
+wp-config-local.php
+.idea/
+wp-content/cache/*
+wp-content/debug.log
+wp-content/wflogs/
+wp-content/uploads/ShortpixelBackups/*
+wp-content/uploads/*
+wp-content/wphb-cache
+wp-content/wphb-logs
+wp-content/wpvividbackups/*
+.bash_history
+.ssh/
+.cache
+.config
+.local
+.pki
+.quarantine/
+.tmb
+.user.ini
+.well-known
+# Log files
+*.log
+
+# ignore node dependency directories (used by grunt)
+node_modules/
+
+# ignore OS generated files
+ehthumbs.db
+Thumbs.db
+
+# ignore Editor files
+*.sublime-project
+*.sublime-workspace
+*.komodoproject
+
+# ignore log files and databases
+*.log
+*.sql
+*.sqlite
+
+# ignore compiled files
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# ignore packaged files
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# track these files, if they exist
+!.gitignore
+!.editorconfig
+!.phpcs.xml.dist
+!README.md
+!CHANGELOG.md
+!composer.json
+
+.htaccess
