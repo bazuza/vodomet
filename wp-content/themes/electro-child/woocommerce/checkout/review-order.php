@@ -61,7 +61,13 @@ $show_currency = get_field('show_in_cart_and_checkout', 'options');
 
 		<tr class="cart-subtotal">
 			<th><?php esc_html_e( 'Subtotal', 'woocommerce' ); ?></th>
-			<td><?php wc_cart_totals_subtotal_html(); ?></td>
+			<td>
+				<?php wc_cart_totals_subtotal_html(); ?>
+				<?php if (in_array('Yes', $show_currency) && $currency_rate) {
+					$price_total = WC()->cart->cart_contents_total;
+					echo '<br><span class="additional-currency woocommerce-Price-amount">' . round($price_total * $currency_rate, 1) . '&nbsp;' . $currency_symbol . '</span>';
+				} ?>
+			</td>
 		</tr>
 
 		<?php foreach ( WC()->cart->get_coupons() as $code => $coupon ) : ?>

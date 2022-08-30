@@ -657,6 +657,10 @@ select {
     font-size: 14px;
     margin-left: 7px;
 }
+.shipping-calculator-button {
+    margin-bottom: 20px;
+    display: inline-block;
+}
 /* @media */
 @media (max-width: 980px) {
     div.wpforms-container-full .wpforms-form textarea {
