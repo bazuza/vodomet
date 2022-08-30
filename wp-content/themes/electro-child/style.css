@@ -621,7 +621,7 @@ select {
     border-radius: 0;
 }
 .additional-currency {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     line-height: 1;
     font-weight: 600;
@@ -644,8 +644,17 @@ select {
     margin-left: 7px;
     margin-top: 3px;
 }
-.single-product .additional-currency {
+.single-product .product-actions-wrapper .additional-currency {
     font-size: 20px;
+}
+.product_list_widget .mini_cart_item .quantity {
+    display: flex;
+}
+.woocommerce-mini-cart-item .quantity .additional-currency {
+    margin-left: 7px;
+}
+.header-icon__cart .additional-currency {
+    font-size: 14px;
 }
 /* @media */
 @media (max-width: 980px) {

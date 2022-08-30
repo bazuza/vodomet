@@ -71,6 +71,29 @@
             "toggle": 0,
             "return_format": "value",
             "save_custom": 0
+        },
+        {
+            "key": "field_630e3b0bc9abb",
+            "label": "Show currency in mini cart",
+            "name": "show_currency_in_mini_cart",
+            "type": "checkbox",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "Yes": "Yes"
+            },
+            "allow_custom": 0,
+            "default_value": [],
+            "layout": "horizontal",
+            "toggle": 0,
+            "return_format": "value",
+            "save_custom": 0
         }
     ],
     "location": [
@@ -90,5 +113,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1661847083
+    "modified": 1661877119
 }

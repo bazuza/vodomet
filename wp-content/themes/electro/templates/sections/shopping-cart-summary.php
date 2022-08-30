@@ -20,7 +20,7 @@ if( apply_filters( 'electro_off_canvas_cart', true ) ) { ?>
 				<span class="electro-close-icon">close</span>
 			</header>
 			<div class="cart-products widget-area">
-				<div class="cart-product-list 3545 dropdown-menu-mini-cart">
+				<div class="cart-product-list dropdown-menu-mini-cart">
 					<?php the_widget( 'WC_Widget_Cart', 'title=' ); ?>
 				</div>
 			</div>

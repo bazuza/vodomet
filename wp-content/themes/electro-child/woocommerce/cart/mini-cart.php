@@ -19,6 +19,10 @@
 
 defined( 'ABSPATH' ) || exit;
 
+$currency_rate = get_field('currency_rate', 'options');
+$currency_symbol = get_field('currency_symbol', 'options');
+$show_currency = get_field('show_currency_in_mini_cart', 'options');
+
 do_action( 'woocommerce_before_mini_cart' ); ?>
 
 <?php if ( ! WC()->cart->is_empty() ) : ?>
@@ -60,7 +64,15 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 						</a>
 					<?php endif; ?>
 					<?php echo wc_get_formatted_cart_item_data( $cart_item ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-					<?php echo apply_filters( 'woocommerce_widget_cart_item_quantity', '<span class="quantity">' . sprintf( '%s &times; %s', $cart_item['quantity'], $product_price ) . '</span>', $cart_item, $cart_item_key ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+					<span class="quantity">
+					<?php echo apply_filters( 'woocommerce_widget_cart_item_quantity', '<span class="quantity-in">' . sprintf( '%s &times; %s', $cart_item['quantity'], $product_price ) . '</span>', $cart_item, $cart_item_key ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+					<?php
+					if( in_array('Yes', $show_currency) && $currency_rate) {
+						$price = $_product->get_price();
+						echo '<span class="additional-currency">' . round($price*$currency_rate, 1) . '&nbsp;' . $currency_symbol . '</span>';
+					}
+					?>
+					</span>
 				</li>
 				<?php
 			}
