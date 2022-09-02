@@ -29,9 +29,10 @@ function currencyMiniCartUpdate(el) {
             let cartTotal = _self.find(el);
             let totalVal = cartTotal.text().replace(/[^0-9]/gi, '');
             let currencyRate = _self.data('rate');
+            let currencyRound = _self.data('round');
             let currencySymbol = _self.data('symbol');
             let currencyVal = jQuery('<span class="additional-currency">'
-             + (totalVal*currencyRate).toFixed(1) + '&nbsp;' + currencySymbol + '</span>');
+             + (totalVal/currencyRate).toFixed(currencyRound) + '&nbsp;' + currencySymbol + '</span>');
             if(cartTotal.length && totalVal) {
                 cartTotal.next('.additional-currency').remove();
                 currencyVal.insertAfter(cartTotal);

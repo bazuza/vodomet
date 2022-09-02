@@ -66,12 +66,7 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 					<?php echo wc_get_formatted_cart_item_data( $cart_item ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 					<span class="quantity">
 					<?php echo apply_filters( 'woocommerce_widget_cart_item_quantity', '<span class="quantity-in">' . sprintf( '%s &times; %s', $cart_item['quantity'], $product_price ) . '</span>', $cart_item, $cart_item_key ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-					<?php
-					if( in_array('Yes', $show_currency) && $currency_rate) {
-						$price = $_product->get_price();
-						echo '<span class="additional-currency">' . round($price*$currency_rate, 1) . '&nbsp;' . $currency_symbol . '</span>';
-					}
-					?>
+					<?php additional_currency_build($_product->get_price(), '', false); ?>
 					</span>
 				</li>
 				<?php

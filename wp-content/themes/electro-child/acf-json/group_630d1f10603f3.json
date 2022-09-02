@@ -73,11 +73,11 @@
             "save_custom": 0
         },
         {
-            "key": "field_630e3b0bc9abb",
-            "label": "Show currency in mini cart",
-            "name": "show_currency_in_mini_cart",
-            "type": "checkbox",
-            "instructions": "",
+            "key": "field_631105bbf1b30",
+            "label": "Currency rounding up to:",
+            "name": "currency_rounding_up_to",
+            "type": "radio",
+            "instructions": "Nearest decimal - (i.e.,4.2 per cent)<br>\r\nNearest hundredth - (i.e., 4.23 per cent)",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -86,14 +86,15 @@
                 "id": ""
             },
             "choices": {
-                "Yes": "Yes"
+                "1": "Nearest decimal",
+                "2": "Nearest hundredth"
             },
-            "allow_custom": 0,
-            "default_value": [],
-            "layout": "horizontal",
-            "toggle": 0,
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "",
+            "layout": "vertical",
             "return_format": "value",
-            "save_custom": 0
+            "save_other_choice": 0
         }
     ],
     "location": [
@@ -113,5 +114,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1661877119
+    "modified": 1662071666
 }

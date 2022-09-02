@@ -85,5 +85,6 @@ function awooc_added_addres_field( $addres ) {
 }
 
 include_once 'inc/acf-options.php';
+include_once 'inc/currency-additional.php';
 
 

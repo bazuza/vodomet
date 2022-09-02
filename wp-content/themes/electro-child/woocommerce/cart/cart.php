@@ -18,9 +18,7 @@
 defined( 'ABSPATH' ) || exit;
 
 do_action( 'woocommerce_before_cart' );
-$currency_rate = get_field('currency_rate', 'options');
-$currency_symbol = get_field('currency_symbol', 'options');
-$show_currency = get_field('show_in_cart_and_checkout', 'options');
+
 ?>
 
 <form class="woocommerce-cart-form" action="<?php echo esc_url( wc_get_cart_url() ); ?>" method="post">
@@ -103,10 +101,7 @@ $show_currency = get_field('show_in_cart_and_checkout', 'options');
 								echo apply_filters( 'woocommerce_cart_item_price', WC()->cart->get_product_price( $_product ), $cart_item, $cart_item_key ); // PHPCS: XSS ok.
 							?>
 							<?php
-								if( in_array('Yes', $show_currency) && $currency_rate) {
-									$price = $_product->get_price();
-									echo '<br><span class="additional-currency">' . round($price*$currency_rate, 1) . '&nbsp;' . $currency_symbol . '</span>';
-								}
+								additional_currency_build($_product->get_price(), '', false);
 							?>
 						</td>
 
@@ -135,12 +130,7 @@ $show_currency = get_field('show_in_cart_and_checkout', 'options');
 						<td class="product-subtotal" data-title="<?php esc_attr_e( 'Subtotal', 'woocommerce' ); ?>">
 							<?php
 								echo apply_filters( 'woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal( $_product, $cart_item['quantity'] ), $cart_item, $cart_item_key ); // PHPCS: XSS ok.
-							
-							if (in_array('Yes', $show_currency) && $currency_rate) {
-								$price_sub = $_product->get_price()*$cart_item['quantity'];
-								echo '<br><span class="additional-currency">' . round($price_sub * $currency_rate, 1) . '&nbsp;' . $currency_symbol . '</span>';
-							}
-
+								additional_currency_build($_product->get_price()*$cart_item['quantity'], '', false);
 							?>
 						</td>
 					</tr>

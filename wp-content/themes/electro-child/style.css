@@ -661,6 +661,9 @@ select {
     margin-bottom: 20px;
     display: inline-block;
 }
+.woocommerce-thankyou-order-details .total br {
+    display: none;
+}
 /* @media */
 @media (max-width: 980px) {
     div.wpforms-container-full .wpforms-form textarea {
